@@ -4,6 +4,8 @@ Tento projekt obsahuje konfiguraci pro **ESPHome** běžící na mikrokontroleru
 
 Projekt řeší spolehlivý sběr surových dat z UART bufferu, precizní detekci konce zpráv (packet timeout) a okamžité publikování čistých entit (OBIS kódů) do **Home Assistanta**.
 
+https://www.cezdistribuce.cz/pro-zakazniky/potrebuji-vyresit/elektromery-a-odecty/komunikacni-rozhrani-z-elektromeru
+
 ## Hlavní vlastnosti
 
 * **Optimalizace pro RP2040 (Raspberry Pi Pico W):** Využívá hardwarový UART s dostatečnou vyrovnávací pamětí (`rx_buffer_size: 2048`), což brání ztrátě bajtů při rychlém burst přenosu z elektroměru (kdy naráz přichází stovky bajtů).
