@@ -1,6 +1,6 @@
 # ESPHome HAN Port Reader (Czech Smart Meters)
 
-Tento projekt obsahuje konfiguraci pro **ESPHome** běžící na mikrokontroleru **Raspberry Pi Pico W** (RP2040), která slouží k pasivnímu vyčítání dat z digitálních inteligentních elektroměrů (smart meterů) v České republice (ČEZ Distribuce, EG.D, PRE) přes jejich **HAN rozhraní** (sériová linka / UART přes fyzickou vrstvu RS485).
+Tento projekt obsahuje konfiguraci pro **ESPHome** běžící na mikrokontroleru **Raspberry Pi Pico W** (RP2040), která slouží k pasivnímu vyčítání dat z digitálních inteligentních elektroměrů (smart meterů) v České republice (ČEZ Distribuce, EG.D, PRE) přes jejich **HAN rozhraní** (sériová linka / UART přes fyzickou vrstvu RS485). Vyčítání dat z elektoměrů tímto způsobem je povolené a není třeba ditributora žádat.
 
 Projekt řeší spolehlivý sběr surových dat z UART bufferu, precizní detekci konce zpráv (packet timeout) a okamžité publikování čistých entit (OBIS kódů) do **Home Assistanta**.
 
@@ -15,11 +15,20 @@ Projekt řeší spolehlivý sběr surových dat z UART bufferu, precizní detekc
 
 1. **Raspberry Pi Pico W** (případně jiný podporovaný RP2040/ESP32 čip).
    Raspberry Pi Pico WH - RP2040 ARM Cortex M0 + CYW43439 - WiFi - s konektory  RPI-21575
-3. **Převodník RS485 na TTL / UART:** Je naprosto klíčové použít modul, který podporuje **3.3V logiku** (např. s čipem SP3485). Běžné levné 5V moduly (MAX485) mohou Pico W poškodit, pokud nemají posun napěťových úrovní (level shifter).
+   https://botland.cz/moduly-a-soupravy-pro-raspberry-pi-pico/21575-raspberry-pi-pico-wh-rp2040-arm-cortex-m0-cyw43439-wifi-s-konektory-5056561800196.html
+2. **Převodník RS485 na TTL / UART:** Je naprosto klíčové použít modul, který podporuje **3.3V logiku** (např. s čipem SP3485). Běžné levné 5V moduly (MAX485) mohou Pico W poškodit, pokud nemají posun napěťových úrovní (level shifter).
+ https://botland.cz/dalsi-moduly-pro-raspberry-pi-pico/20098-2kanalovy-rs485-2kanalovy-uart-rs485-sp3485-pro-raspberry-pi-pico-waveshare-19717-5904422380144.html
   2kanálový RS485 - 2kanálový UART -RS485 SP3485 - pro Raspberry Pi Pico - Waveshare 19717 WSR-20098
-4. **Kabel RJ12:** Zapojený do HAN portu elektroměru dle specifikace vašeho distributora.
+3. **Kabel RJ12:** Zapojený do HAN portu elektroměru dle specifikace vašeho distributora.
+https://www.aliexpress.com/item/1005006226706163.html?spm=a2g0o.order_list.order_list_main.62.1cca1802kPYa0H
+4. Zásuvka RJ12
+https://www.aliexpress.com/item/1005005928565508.html?spm=a2g0o.order_list.order_list_main.67.1cca1802kPYa0H
+5. Napajecí zdroj
 
 ### Příklad schématu zapojení
+
+https://www.cezdistribuce.cz/file/edee/distribuce/ppnn/vp_1-13.pdf
+
 
 <img width="904" height="110" alt="image" src="https://github.com/user-attachments/assets/ef8cc6d5-3e69-44bc-8c33-abce36fe932c" />
 
@@ -45,7 +54,7 @@ Jakmile se Pico W poprvé úspěšně připojí k vaší Wi-Fi, Home Assistant z
 Při spárování budete vyzváni k zadání šifrovacího klíče (encryption key), který zkopírujete ze své konfigurace (sekce api: encryption: key:).
 
 ## Skrývání interních/pomocných senzorů
-Pokud v konfiguraci používáte pomocné textové nebo číselné senzory (např. pro zachycení surového řetězce z UARTu, diagnostiku textu nebo mezivýpočty) a nechcete, aby vám tyto pomocné proměnné zbytečně zaplňovaly přehled entit v Home Assistantovi, skryjte je pomocí parametru internal: true.
+Pokud v konfiguraci používáte pomocné textové nebo číselné senzory (např. pro zachycení surového řetězce z UARTu, diagnostiku textu nebo mezivýpočty) a nechcete, aby vám tyto pomocné proměnné zbytečně zaplňovaly přehled entit v Home Assistantovi, skryjte je pomocí parametru internal: true. Část senzorů je již v konfiguraci skryta.
  
 Senzor tak zůstane plně funkční pro interní potřeby automatizací a lambda kódů uvnitř ESPHome, ale vůbec se neexportuje do Home Assistanta:
 
