@@ -25,6 +25,8 @@ https://www.aliexpress.com/item/1005006226706163.html?spm=a2g0o.order_list.order
 https://www.aliexpress.com/item/1005005928565508.html?spm=a2g0o.order_list.order_list_main.67.1cca1802kPYa0H
 5. Napajecí zdroj
 
+<img width="350" height="507" alt="image" src="https://github.com/user-attachments/assets/72549c73-d633-4722-b1a3-b7c745a6be78" />
+
 ### Příklad schématu zapojení
 
 https://www.cezdistribuce.cz/file/edee/distribuce/ppnn/vp_1-13.pdf
