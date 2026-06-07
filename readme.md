@@ -53,3 +53,20 @@ Senzor tak zůstane plně funkční pro interní potřeby automatizací a lambda
 Při spuštění můžete v logu vidět pravidelné hlášky:
 [uart:014]: Reading from UART timed out at byte 0!
 To je v tomto zapojení zcela normální chování. Znamená to pouze, že v daném 200ms okně elektroměr zrovna nic nevysílal (jelikož čeká na svůj minutový interval). Jakmile elektroměr data pošle, v logu se objeví úspěšné sestavení: Complete frame (355 bytes).
+
+## Poděkování / Autoři
+Celé toto technické řešení, logiku vyčítání z UART bufferu vymyslel a navrhl kamarád Michal ve spolupráci s umělou inteligencí (AI).  
+
+## Licence
+  
+Tento projekt je šířen pod licencí MIT. Můžete jej volně upravovat a přizpůsobovat svým podmínkám.
+
+## Senzory v HA
+<img width="350" height="748" alt="image" src="https://github.com/user-attachments/assets/8dfdc969-cfda-43fa-a38e-8d14e21abb5d" />
+
+<img width="318" height="714" alt="image" src="https://github.com/user-attachments/assets/f9c6193f-a5da-4436-a689-451b86bcf965" />
+
+
+## Dashboard příklad
+<img width="505" height="609" alt="image" src="https://github.com/user-attachments/assets/35031954-7672-4e8c-a439-79c9dd88f659" />
+
