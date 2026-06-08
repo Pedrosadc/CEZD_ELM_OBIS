@@ -31,6 +31,7 @@ https://www.aliexpress.com/item/1005005928565508.html?spm=a2g0o.order_list.order
 <img width="350" height="507" alt="image" src="https://github.com/user-attachments/assets/72549c73-d633-4722-b1a3-b7c745a6be78" />
 
 ### Čtečka se obvykle připojuje k relé boxu, pokud není osazen tak přimo na ELM.
+<img width="666" height="662" alt="image" src="https://github.com/user-attachments/assets/e5f7141f-db1d-4685-82e4-43318a14f6ee" />
 
 
 ### Příklad schématu zapojení
